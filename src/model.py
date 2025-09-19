@@ -278,7 +278,14 @@ class ModelTrainer:
             device: Device pour l'entraînement
         """
         self.model = model
-        self.device = device if device else torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+        if device:
+            self.device = device
+        elif torch.backends.mps.is_available():
+            self.device = torch.device('mps')
+        elif torch.cuda.is_available():
+            self.device = torch.device('cuda')
+        else:
+            self.device = torch.device('cpu')
         self.model.to(self.device)
         
         logger.info(f"Modèle déplacé sur {self.device}")

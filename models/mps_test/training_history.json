@@ -1,0 +1,91 @@
+{
+  "train_history": [
+    {
+      "loss": 0.7947856959700584,
+      "accuracy": 0.56375
+    },
+    {
+      "loss": 0.6515959471464157,
+      "accuracy": 0.64875
+    },
+    {
+      "loss": 0.5098948633670807,
+      "accuracy": 0.75875
+    },
+    {
+      "loss": 0.46072791442275046,
+      "accuracy": 0.78875
+    },
+    {
+      "loss": 0.38076337970793245,
+      "accuracy": 0.815
+    }
+  ],
+  "val_history": [
+    {
+      "loss": 0.5986722683906556,
+      "accuracy": 0.8
+    },
+    {
+      "loss": 0.3889364492893219,
+      "accuracy": 0.93
+    },
+    {
+      "loss": 0.2950894910097122,
+      "accuracy": 0.95
+    },
+    {
+      "loss": 0.2278481739759445,
+      "accuracy": 0.965
+    },
+    {
+      "loss": 0.2081182223558426,
+      "accuracy": 0.96
+    }
+  ],
+  "config": {
+    "model_config": {
+      "model_name": "distilbert-base-uncased",
+      "num_lexical_features": 20,
+      "model_size": {
+        "total_parameters": 66672962,
+        "trainable_parameters": 14485826,
+        "frozen_parameters": 52187136
+      }
+    },
+    "training_config": {
+      "num_epochs": 5,
+      "batch_size": 8,
+      "learning_rate": 2e-05,
+      "best_val_acc": 0.965
+    },
+    "final_metrics": {
+      "final_train_accuracy": 0.815,
+      "final_val_accuracy": 0.96,
+      "best_val_accuracy": 0.965
+    },
+    "feature_names": [
+      "num_urls",
+      "url_ratio",
+      "has_suspicious_url",
+      "has_ip_url",
+      "has_shortened_url",
+      "avg_url_length",
+      "text_length",
+      "num_words",
+      "avg_word_length",
+      "num_sentences",
+      "uppercase_ratio",
+      "digit_ratio",
+      "special_char_ratio",
+      "text_entropy",
+      "num_suspicious_words",
+      "suspicious_word_ratio",
+      "has_exclamation",
+      "num_exclamations",
+      "has_all_caps_words",
+      "num_money_references"
+    ],
+    "timestamp": "2025-09-19T21:49:33.066945"
+  }
+}

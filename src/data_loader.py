@@ -173,7 +173,8 @@ class EmailDataLoader:
         return encoded
     
     def prepare_dataset(self, file_path: str, test_size: float = 0.2, 
-                       random_state: int = 42) -> Tuple[Dict, Dict, List[int], List[int]]:
+                       random_state: int = 42, text_column: str = "text", 
+                       label_column: str = "label") -> Tuple[Dict, Dict, List[int], List[int]]:
         """
         Prépare le dataset complet pour l'entraînement.
         
@@ -181,12 +182,14 @@ class EmailDataLoader:
             file_path: Chemin vers le fichier de données
             test_size: Proportion du test set
             random_state: Graine aléatoire
+            text_column: Nom de la colonne contenant le texte
+            label_column: Nom de la colonne contenant les labels
             
         Returns:
             Tuple (train_encodings, val_encodings, train_labels, val_labels)
         """
         # Charger les données
-        texts, labels = self.load_dataset(file_path)
+        texts, labels = self.load_dataset(file_path, text_column, label_column)
         
         # Split train/validation
         train_texts, val_texts, train_labels, val_labels = train_test_split(
